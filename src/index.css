@@ -1,0 +1,100 @@
+/* Import the base styles from Tailwind CSS. */
+@tailwind base;
+
+/* Import component styles from Tailwind CSS. */
+@tailwind components;
+
+/* Import utility classes from Tailwind CSS. */
+@tailwind utilities;
+
+/* Define styles for the base layer of the application. */
+@layer base {
+  body {
+    /* Apply antialiased font smoothing for better text rendering. */
+    @apply antialiased;
+    
+    /* Set a background gradient that transitions from light blue to light purple.
+    The dark mode variant transitions from dark gray to dark blue. */
+    @apply bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-900 dark:to-blue-900;
+  }
+}
+
+/* Define styles for the components layer of the application. */
+@layer components {
+  /* Create a glassmorphic effect for elements with the class 'glassmorphic'. */
+  .glassmorphic {
+    /* Set a semi-transparent white background for light mode and a semi-transparent dark gray for dark mode. */
+    @apply bg-white/70 dark:bg-gray-800/70;
+    
+    /* Apply a backdrop blur effect to create a frosted glass appearance. */
+    @apply backdrop-blur-lg;
+    
+    /* Define a border with a slight transparency for both light and dark modes. */
+    @apply border border-white/20 dark:border-gray-700/20;
+  }
+  
+  /* Define styles for the widget card component. */
+  .widget-card {
+    /* Apply the glassmorphic styles, rounded corners, and shadow effects. */
+    @apply glassmorphic rounded-xl shadow-lg;
+    
+    /* Add a smooth transition effect for all properties over 300ms. */
+    @apply transition-all duration-300;
+    
+    /* Change the shadow and scale on hover for an interactive effect. */
+    @apply hover:shadow-xl hover:scale-[1.02];
+  }
+
+  /* Define the initial state for widget enter animations. */
+  .widget-enter {
+    /* Set initial opacity to 0 for fade-in effect. */
+    opacity: 0;
+    
+    /* Move the element down 20 pixels and scale it down to 95%. */
+    transform: translateY(20px) scale(0.95);
+  }
+  
+  /* Define the active state for widget enter animations. */
+  .widget-enter-active {
+    /* Set final opacity to 1 for full visibility. */
+    opacity: 1;
+    
+    /* Reset the transform to original position and scale. */
+    transform: translateY(0) scale(1);
+    
+    /* Define the transition properties for opacity and transform. */
+    transition: opacity 300ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Define the initial state for widget exit animations. */
+  .widget-exit {
+    /* Set initial opacity to 1 to ensure the element is fully visible before exit. */
+    opacity: 1;
+    
+    /* Maintain the original scale before the exit animation begins. */
+    transform: scale(1);
+  }
+  
+  /* Define the active state for widget exit animations. */
+  .widget-exit-active {
+    /* Fade out the element by setting opacity to 0. */
+    opacity: 0;
+    
+    /* Move the element up 20 pixels and scale it down to 95%. */
+    transform: translateY(-20px) scale(0.95);
+    
+    /* Define the transition properties for opacity and transform. */
+    transition: opacity 300ms, transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* Hide the scrollbar in WebKit browsers (e.g., Chrome, Safari). */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /*Prevent the scrollbar from being displayed.*/
+}
+
+/* Hide the scrollbar in other browsers. */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge.*/
+  scrollbar-width: none; /* For Firefox.*/
+}
