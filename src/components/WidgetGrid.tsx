@@ -6,7 +6,7 @@ import { WeatherWidget } from "./widgets/WeatherWidget"; // Import the WeatherWi
 import { CryptoWidget } from "./widgets/CryptoWidget"; // Import the CryptoWidget component.
 import { NewsWidget } from "./widgets/NewsWidget"; // Import the NewsWidget component.
 import { TaskWidget } from "./widgets/TaskWidget"; // Import the TaskWidget component.
-import { CalendarWidget } from "./widgets/CalendarWidget"; // Import the CalendarWidget component.
+import { CalendarWidget } from "./widgets/CalenderWidget"; // Import the CalendarWidget component.
 import { Widget } from "../types"; // Import the Widget type definition.
 import { X, GripHorizontal } from "lucide-react"; // Import icons for removing and dragging widgets.
 
