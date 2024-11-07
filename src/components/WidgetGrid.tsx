@@ -48,13 +48,10 @@ export const WidgetGrid: React.FC = () => {
 
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
-      {" "}
       {/* Set up the drag-and-drop context with the handleDragEnd function. */}
       <Droppable droppableId="widgets">
-        {" "}
-        {/* Define a droppable area for the widgets. */}
         {(
-          provided // Render the droppable area.
+          provided // Correctly use the function-as-child pattern
         ) => (
           <div
             {...provided.droppableProps} // Spread droppable props to the div.
@@ -71,17 +68,16 @@ export const WidgetGrid: React.FC = () => {
                   index={index} // Set the index for the draggable item.
                 >
                   {(
-                    provided,
-                    snapshot // Render the draggable component.
+                    provided // Correctly use the function-as-child pattern
                   ) => (
                     <div
                       ref={provided.innerRef} // Set the ref for the draggable item.
                       {...provided.draggableProps} // Spread draggable props to the div.
+                      {...provided.dragHandleProps} // Spread drag handle props to the div.
                       className={`widget-card relative group ${
-                        snapshot.isDragging ? "shadow-2xl scale-105" : "" // Apply styles when the widget is being dragged.
+                        provided.isDragging ? "shadow-2xl scale-105" : "" // Apply styles when the widget is being dragged.
                       }`}>
                       <div className="absolute top-2 right-2 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                        {" "}
                         {/* Container for the remove and drag handle buttons. */}
                         <button
                           onClick={() => removeWidget(widget.id)} // Call removeWidget with the widget ID on button click.
@@ -92,7 +88,6 @@ export const WidgetGrid: React.FC = () => {
                           {/* Icon for removing the widget. */}
                         </button>
                         <div
-                          {...provided.dragHandleProps} // Spread drag handle props to the div.
                           className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700/30 text-gray-400 cursor-grab transition-colors" // Styling for the drag handle.
                           title="Drag to reorder" // Tooltip for the drag handle.
                         >
