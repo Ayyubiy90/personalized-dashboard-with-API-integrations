@@ -103,7 +103,7 @@ export const CalendarWidget: React.FC<Props> = ({ widget }) => {
               className="p-4 rounded-lg bg-white/50 dark:bg-gray-800/50 hover:bg-white/80 dark:hover:bg-gray-800/80 transition-all duration-200" // Styling for each event card.
             >
               <div className="flex items-start justify-between">
-                {" "}
+                {" "} 
                 {/* Flex container for event details. */}
                 <div>
                   <h4 className="font-medium text-gray-900 dark:text-white">

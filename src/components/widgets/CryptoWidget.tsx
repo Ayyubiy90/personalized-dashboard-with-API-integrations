@@ -111,7 +111,7 @@ export const CryptoWidget: React.FC<Props> = ({ widget }) => {
                     <TrendingDown className="w-4 h-4" /> // Display trending down icon for negative change.
                   )}
                   <span className="text-sm ml-1">
-                    {" "}
+                    {" "} 
                     {/* Display the price change percentage. */}
                     {Math.abs(coin.price_change_percentage_24h).toFixed(
                       2
