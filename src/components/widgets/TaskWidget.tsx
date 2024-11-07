@@ -112,7 +112,7 @@ export const TaskWidget: React.FC<Props> = () => {
                       ? "text-gray-400 line-through" // Style for completed task title.
                       : "text-gray-900 dark:text-white" // Style for incomplete task title.
                   }`}>
-                  {task.title} // Display the task title.
+                  {task.title}
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -121,8 +121,7 @@ export const TaskWidget: React.FC<Props> = () => {
                 <span className="text-xs text-gray-500 dark:text-gray-400">
                   {" "}
                   {/* Display the task creation date. */}
-                  {format(new Date(task.createdAt), "MMM d")} // Format the
-                  creation date.
+                  {format(new Date(task.createdAt), "MMM d")} 
                 </span>
                 <button
                   onClick={() => removeTask(task.id)} // Remove task on button click.
