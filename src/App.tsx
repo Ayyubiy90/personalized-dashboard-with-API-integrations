@@ -1,6 +1,3 @@
-// Importing React library to create components.
-import React from "react";
-
 // Importing Toaster component from react-hot-toast for toast notifications.
 import { Toaster } from "react-hot-toast";
 
