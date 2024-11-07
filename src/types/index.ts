@@ -45,6 +45,8 @@ export interface Task {
 
 // Define an interface for WeatherData, which holds data about the weather.
 export interface WeatherData {
+  humidity: ReactNode;
+  windSpeed: ReactNode;
   // Current temperature in degrees (assumed Celsius or Fahrenheit).
   temperature: number;
   

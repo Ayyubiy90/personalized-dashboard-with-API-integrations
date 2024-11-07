@@ -4,7 +4,7 @@ import axios from 'axios';
 import { WeatherData } from '../types';
 
 // Define the API key for authenticating requests to the OpenWeatherMap API.
-const API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY';
+const API_KEY = 'VITE_WEATHER_API_KEY';
 // Define a default location for which to fetch weather data (London).
 const DEFAULT_LOCATION = 'London';
 

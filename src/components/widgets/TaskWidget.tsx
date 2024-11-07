@@ -1,6 +1,6 @@
 // Import necessary libraries and components.
 import React, { useState } from "react"; // Import React and useState hook for managing component state.
-import { CheckSquare, Square, Plus, Trash2, Loader } from "lucide-react"; // Import icons for task completion, addition, and deletion.
+import { CheckSquare, Square, Plus, Trash2 } from "lucide-react"; // Import icons for task completion, addition, and deletion.
 import { Task, Widget } from "../../types"; // Import type definitions for Task and Widget.
 import { useDashboardStore } from "../../store"; // Import the custom hook to access the dashboard store.
 import { format } from "date-fns"; // Import date-fns for formatting dates.

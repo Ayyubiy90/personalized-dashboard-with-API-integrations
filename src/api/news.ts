@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NewsItem } from '../types';
 
 // Define the API key for authenticating requests to the news API.
-const API_KEY = 'YOUR_NEWS_API_KEY';
+const API_KEY = 'VITE_NEWS_API_KEY';
 // Define the base URL for fetching top headlines from the news API.
 const BASE_URL = 'https://newsapi.org/v2/top-headlines';
 
