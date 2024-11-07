@@ -4,16 +4,16 @@ import axios from 'axios';
 import { WeatherData } from '../types';
 
 // Define the API key for authenticating requests to the OpenWeatherMap API.
-const API_KEY = 'VITE_WEATHER_API_KEY';
+const API_KEY = import.meta.env.VITE_WEATHER_API_KEY; // Use environment variable
 // Define a default location for which to fetch weather data (London).
 const DEFAULT_LOCATION = 'London';
 
 // Define an asynchronous function to fetch weather data.
-export const fetchWeatherData = async (): Promise<WeatherData> => {
+export const fetchWeatherData = async (location: string = DEFAULT_LOCATION): Promise<WeatherData> => {
   try {
-    // Make a GET request to the OpenWeatherMap API to fetch weather data for the default location.
+    // Make a GET request to the OpenWeatherMap API to fetch weather data for the specified location.
     const response = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${DEFAULT_LOCATION}&appid=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}&units=metric`
     );
 
     // Return an object containing the relevant weather data.
@@ -29,7 +29,7 @@ export const fetchWeatherData = async (): Promise<WeatherData> => {
     };
   } catch (error) {
     // Log any errors that occur during the data fetching process.
-    console.error('Error fetching weather data:', error);
+    console.error('Error fetching weather data:', error.response ? error.response.data : error.message);
     // Rethrow the error to be handled by the calling function.
     throw error;
   }

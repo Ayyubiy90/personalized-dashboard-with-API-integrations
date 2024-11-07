@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NewsItem } from '../types';
 
 // Define the API key for authenticating requests to the news API.
-const API_KEY = 'VITE_NEWS_API_KEY';
+const API_KEY = import.meta.env.VITE_NEWS_API_KEY; // Use environment variable
 // Define the base URL for fetching top headlines from the news API.
 const BASE_URL = 'https://newsapi.org/v2/top-headlines';
 
@@ -23,14 +23,18 @@ export const fetchNewsData = async (): Promise<NewsItem[]> => {
     // Map over the articles returned in the response to create an array of NewsItem objects.
     return response.data.articles.map((article: any) => ({
       id: article.url, // Use the article's URL as a unique identifier.
-      title: article.title, // Get the title of the article.
+      title: article.title || 'No Title', // Provide a fallback title.
       url: article.url, // Get the URL of the article.
-      source: article.source.name, // Get the name of the source of the article.
-      publishedAt: article.publishedAt, // Get the publication date of the article.
+      source: article.source?.name || 'Unknown Source', // Use optional chaining.
+      publishedAt: article.publishedAt || 'Unknown Date', // Provide a fallback date.
     }));
   } catch (error) {
-    // Log any errors that occur during the data fetching process.
-    console.error('Error fetching news data:', error);
+    // Check if the error is an AxiosError
+    if (axios.isAxiosError(error)) {
+      console.error('Error fetching news data:', error.response ? error.response.data : error.message);
+    } else {
+      console.error('Unexpected error:', error);
+    }
     // Rethrow the error to be handled by the calling function.
     throw error;
   }
