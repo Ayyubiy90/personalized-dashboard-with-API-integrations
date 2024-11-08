@@ -48,7 +48,7 @@ Create a `.env` file in the root directory:
 ```env
 VITE_WEATHER_API_KEY=your_openweathermap_api_key
 VITE_NEWS_API_KEY=your_newsapi_key
-VITE_CALENDER_API_KEY=your calender_api_key
+VITE_CALENDER_API_KEY=your_calender_api_key
 VITE_CLIENT_ID_KEY=your_client_id_key
 ```
 
